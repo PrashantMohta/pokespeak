@@ -59,14 +59,14 @@ Speak=(text) => {
 
   render()
   {
-    let button;
+    let button1;
     if(this.state.recognitionEnded && !this.state.speaking)
-    button= <button onClick={this.startRecognition}> restart recognition </button>;
+    button1= <button onClick={this.startRecognition}> restart recognition </button>;
     
     return(
     <div className="controls">
         {this.props.label}
-        {button}
+        {button1}
     </div>
   );}
 }
@@ -116,6 +116,7 @@ class App extends Component {
       <button onClick={()=>{this.speak(this.state.label)}}>speak</button>
 
       </div>
+      
     );
   }
 }
