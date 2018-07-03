@@ -139,6 +139,7 @@ class App extends Component {
 
   //initial state
   state={
+        heading:" Select starter Pokemon !",
         label:`which of these cuties will be your starter pokemon !`,
         responses:["squirtle","charmander","bulbasaur"],
         invalid:"will it be squirtle? charmander? or bulbasaur? , just speak the pokemon's name.",
@@ -177,20 +178,10 @@ class App extends Component {
   render() {
     return (
       <div >
-        
-      <h2 className="headingtext"> Choose your pokemon !</h2>
-      <div className="Chooser">
-        <div className="chooser__bulbasaur">
-            <img className="pokemon bulbasaur" src="images/bulbasaur_front.png" alt="bulbasaur"/>
-        </div>
-        <div className="chooser__squirtle">
-          <img className="pokemon squirtle" src="images/squirtle_front.png" alt="bulbasaur"/>
-        </div>
-        <div className="chooser__charmander">
-          <img className="pokemon charmander" src="images/charmander_front.png" alt="bulbasaur"/>
-        </div>
+      <div className="visualscontainer">
+          <h2 className="headingtext">{this.state.heading}</h2>
+          <StarterChooser></StarterChooser>
       </div>
-
       <SpeechComponent label={this.state.label} 
       recognitionCallback={this.userSays} 
       allowRecognition={startRecognition => {this.startRecognition =startRecognition} } 
@@ -201,6 +192,23 @@ class App extends Component {
 
     );
   }
+}
+
+function StarterChooser()
+{
+  return (
+<div className="chooser">
+            <div className="chooser__bulbasaur">
+                <img className="pokemon bulbasaur" src="images/bulbasaur_front.png" alt="bulbasaur"/>
+            </div>
+            <div className="chooser__squirtle">
+              <img className="pokemon squirtle" src="images/squirtle_front.png" alt="bulbasaur"/>
+            </div>
+            <div className="chooser__charmander">
+              <img className="pokemon charmander" src="images/charmander_front.png" alt="bulbasaur"/>
+            </div>
+          </div>
+  );
 }
 
 export default App;
