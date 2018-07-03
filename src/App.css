@@ -7,24 +7,28 @@
   position: relative;
   bottom:0px;
   margin:5px;
+  animation:wiggle 1s ease-in-out infinite;
 }
 
 .bulbasaur{
   --bulbasaur-width:120px;
   width:var(--bulbasaur-width);
   left:calc(-var(--bulbasaur-width)/2);
+  animation-delay: 0.5s;
 }
 
 .charmander{
   --charmander-width:120px;
   width:var(--charmander-width);
   left:calc(-var(--charmander-width)/2);
+  animation-delay: 0.7s;
 }
 
 .squirtle{
   --squirtle-width:120px;
   width:var(--squirtle-width);
   left:calc(-var(--squirtle-width)/2);
+  animation-delay: 0.9s;
 }
 
 .chooser__bulbasaur{
@@ -58,9 +62,104 @@
 }
 
 .controls{
+  box-sizing: border-box;
+  margin:5px;
   position:absolute;
-  width:100%;
-  height:10%;
+  left:5px;
+  right:5px;
+  height:30%;
   bottom:0px;
+  border: 10px solid #c8a848;
+  background-color: #285068;
+  border-radius:10px;
+  }
+
+.controls:before{
+  box-sizing: border-box;
+  position: absolute; display: block; content: '';
+  height: 100%; width: 100%;
+  border: 5px solid #e0d8e0;
+  border-radius:2px;
+}
+
+.controls__text{
+  margin:20px;
+  font-size:20px;
+  color:#FFF;
+}
+
+.listen{
+  box-sizing: border-box;
+
+  width: 50px;
+  height:50px;
+  border: 5px solid #bb7777;
+  background-color: #cc8888;
+  border-radius:50%;
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  font-size:30px;
+  color:#FFF;
   text-align:center;
+}
+
+.listen--listening{
+  box-sizing: border-box;
+  width:50px;
+  height:50px;
+  border: 2px solid #cc8888;
+  background-color: #cc8888;
+  border-radius:50%;
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  animation: blink 1s ease-in-out infinite;
+  font-size:30px;
+  color:#Fdd;
+  line-height: 50px;
+  text-align:center;
+}
+
+.listen--speaking{
+  box-sizing: border-box;
+  width:50px;
+  height:50px;
+  border: 2px solid #cc8888;
+  background-color: #cc8888;
+  border-radius:50%;
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  animation: blink 1s ease-in-out infinite;
+  font-size:30px;
+  color:#Fdd;
+  line-height: 50px;
+  text-align:center;
+}
+
+@keyframes blink {
+  0% {  background-color: #aa6666;   border: 1px solid #cc8888;  
+  }
+  50% {  background-color: #cc8888;  border: 5px solid #aa6666;  
+  }
+  100% {  background-color: #aa6666;  border: 1px solid #cc8888;  
+  }
+}
+
+@keyframes wiggle {
+  0% {transform:rotate(0deg); top:0px;}
+  25% {transform:rotate(6deg);top:-10px;}
+  75% {transform:rotate(0deg);top:10px;}
+  100% {transform:rotate(0deg);top:0px;}
+}
+.listen__button{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background-color: #cc8888;
+  border: 0px solid #FFF;
+  color:#FFF;
+  font-size:30px;
+
 }
