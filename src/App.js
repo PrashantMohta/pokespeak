@@ -78,7 +78,7 @@ class App extends Component {
   startRecognition=()=>{console.log("undefined recognition")}
   speak=()=>{console.log("undefined speak")}
 
-  start=setTimeout(()=>{this.speak(this.state.label)},500);
+  start=setTimeout(()=>{this.speak(this.state.label)},1000);
   userSays=(words,confidence)=>{
     if(this.state.responses.indexOf(words)===-1)
     {
@@ -116,7 +116,7 @@ class App extends Component {
       <button onClick={()=>{this.speak(this.state.label)}}>speak</button>
 
       </div>
-      
+
     );
   }
 }
