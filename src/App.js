@@ -72,24 +72,101 @@ Speak=(text) => {
 }
 
 class App extends Component {
-  state={label:`which of these cuties will be your starter pokemon ! \n will it be squirtle? charmander? or bulbasaur? `,
-        responses:["squirtle","charmander","bulbasaur"]};
+
+  sysResponses=[
+  // choose starter
+  (response) => {
+    this.setState({label:` "${response}" is a great choice ! ,say "I choose you" to proceed (toDo)`,
+    responses: ["I choose you"],
+    invalid:`do you want to continue with ${response}?`,
+    invalidResponses:["yes","no"],
+    pokemon:response,
+    respond:this.sysResponses[1],
+    });
+  },
+  //confirm starter
+  (response) => {
+    if(response === "I choose you" || response === "yes" )
+    {
+        // next screen
+        this.setState({label:` "${this.state.pokemon}" is now yours ! `,
+        responses: ["ok"],
+        invalid:`this is all we have for now !`,
+        invalidResponses:["ok"],
+        respond:this.sysResponses[2],
+        });
+    }
+    else if (response ==="no")
+    {
+      // go back to initial state
+      this.setState({
+        label:`which of these cuties will be your starter pokemon !`,
+        responses:["squirtle","charmander","bulbasaur"],
+        invalid:"will it be squirtle? charmander? or bulbasaur? , just speak the pokemon's name.",
+        invalidResponses:[],
+        pokemon:"",
+        respond:this.sysResponses[0],
+        })
+    }
+  },
+  (response) =>{
+    console.log("empty state");
+    this.setState({label:`  ! `,
+        responses: [],
+        invalid:`?`,
+        invalidResponses:[""],
+        respond:this.sysResponses[3],
+        });
+  },
+  (response) =>{
+    console.log("empty state");
+  },
+  (response) =>{
+    console.log("empty state");
+  },
+  (response) =>{
+    console.log("empty state");
+  },
+  (response) =>{
+    console.log("empty state");
+  },
+  ];
+
+  //initial state
+  state={
+        label:`which of these cuties will be your starter pokemon !`,
+        responses:["squirtle","charmander","bulbasaur"],
+        invalid:"will it be squirtle? charmander? or bulbasaur? , just speak the pokemon's name.",
+        invalidResponses:[],
+        pokemon:"",
+        respond:this.sysResponses[0],
+        };
 
   startRecognition=()=>{console.log("undefined recognition")}
   speak=()=>{console.log("undefined speak")}
 
   start=setTimeout(()=>{this.speak(this.state.label)},1000);
   userSays=(words,confidence)=>{
+
     if(this.state.responses.indexOf(words)===-1)
     {
-      this.setState({label:`I'm not sure i understand,  "${words}" is not a valid choice! \n just speak the pokemon's name.`});
-      this.speak(this.state.label)
+      //invalid response
+      if(this.state.invalidResponses.length>0)
+      {
+        this.setState({label:`I'm not sure i understand  "${words}", ${this.state.invalid}`,
+                       responses:this.state.invalidResponses});
+      }
+      this.setState({label:`I'm not sure i understand  "${words}", ${this.state.invalid}`});
+
     }else{
-      this.setState({label:` "${words}" is a great choice !`});
-      this.speak(this.state.label)
-    }
+      this.state.respond(words);
+    } 
+
+    this.speak(this.state.label);
     console.log(`words ${words} with confidence ${confidence}`);
+
   }
+//      <button onClick={()=>{this.speak(this.state.label)}}>speak</button>
 
   render() {
     return (
@@ -113,7 +190,6 @@ class App extends Component {
       allowRecognition={startRecognition => {this.startRecognition =startRecognition} } 
       allowSpeak={Speak => {this.speak =Speak;}}>
       </SpeechComponent>
-      <button onClick={()=>{this.speak(this.state.label)}}>speak</button>
 
       </div>
 
