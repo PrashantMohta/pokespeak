@@ -240,3 +240,265 @@
   font-size:30px;
 
 }
+
+
+.battle{
+  box-sizing: border-box;
+  position:absolute;
+  left:5px;
+  bottom:100px;
+  right:5px;
+  top:50px;
+  background:#d8f0d8;
+  background: linear-gradient(0deg, 
+  #9bf39b 9% ,#e0f8e0 9%,#e0f8e0 10%,#b6efa7 10% ,
+  #b6efa7 19% ,#e0f8e0 19%,#e0f8e0 20%,#b0e6b5 20% ,
+  #b0e6b5 29% ,#e0f8e0 29%,#e0f8e0 30%,#aee3bb 30% ,
+  #aee3bb 39% ,#e0f8e0 39%,#e0f8e0 40%,#aadcc9 40% ,
+  #aadcc9 49% ,#e0f8e0 49%,#e0f8e0 50%,#a8d9cd 50%,
+  #a8d9cd 59% ,#e0f8e0 59%,#e0f8e0 60%,#a4d3d7 60% ,
+  #a4d3d7 69% ,#e0f8e0 69%,#e0f8e0 70%, #a1cde2 70% , 
+  #a1cde2 79% ,#e0f8e0 79%,#e0f8e0 80%, #9dc8ee 80%, 
+  #9dc8ee 89%,#e0f8e0 89%,#e0f8e0 90%, #87c5f5 91%);
+  border-radius: 10px;
+  border: 2px solid #506860;
+ overflow:hidden;
+}
+
+
+.battle__user{
+  position:absolute;
+  left:60px;
+  transform:translate(-50%,0%);
+  bottom:1px;
+}
+.battle__opponent{
+  position:absolute;
+  right:10px;
+  top:10%;
+}
+.battle__pokemon--opponent{
+  position: relative;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  right:10px;
+  top:10px;
+}
+.battle__pokemon--user{
+  position: relative;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+
+  left:10px;
+  bottom:-5px;
+}
+
+
+
+.battle__user:before{
+  content:"";
+  position:absolute;
+  width:200%;
+  left:-10%;
+  height:60px;
+  bottom:-30px;
+  border-radius: 50%;
+  background-color:#38504055;
+  box-shadow: 0px 0px 4px #385040;
+  display: block;
+  z-index:-1;
+}
+.battle__opponent:before{
+  content:"";
+  position:absolute;
+  width:200%;
+  right:-30%;
+  height:30px;
+  bottom:-20px;
+  border-radius: 50%;
+  background-color:#38504055;
+  box-shadow: 0px 0px 4px #385040;
+  display: block;
+}
+
+
+.moves{
+  box-sizing: border-box;
+  position:absolute;
+  left:5px;
+  bottom:0px;
+  right:5px;
+  height:90px;
+  background-color:#f8f8d8;
+  border-radius: 10px;
+  border: 2px solid #385040;
+  overflow:hidden;
+  margin:5px 0px;
+  color:#000;
+
+}
+
+.moves__hint{
+  position:absolute;
+  left:10px;
+  top:0px;
+  font-size:12px;
+}
+.moves__move1{
+  box-sizing: border-box;
+  position:absolute;
+  left:10px;
+  top:18px;
+  background-color:#f8f8d8;
+  border: 2px solid #385040;
+  padding:3px;
+  width:45%;
+  border-radius:5px;
+  text-align:center;
+}
+.moves__move2{
+  box-sizing: border-box;
+  position:absolute;
+  left:10px;
+  bottom:2px;
+  width:45%;
+
+  background-color:#f8f8d8;
+  border: 2px solid #385040;
+  padding:3px;
+  border-radius:5px;
+  text-align:center;
+}
+.moves__move3{
+  box-sizing: border-box;
+  position:absolute;
+  right:10px;
+  top:18px;
+  width:45%;
+
+  background-color:#f8f8d8;
+  border: 2px solid #385040;
+  padding:3px;
+  border-radius:5px;
+  text-align:center;
+}
+.moves__move4{
+  box-sizing: border-box;
+  position:absolute;
+  right:10px;
+  bottom:2px;
+  width:45%;
+  background-color:#f8f8d8;
+  border: 2px solid #385040;
+  padding:3px;
+  border-radius:5px;
+  text-align:center;
+}
+
+
+.battle__opponenthud{
+  position:absolute;
+  left:10px;
+  top:10px;
+  right:170px;
+  height:48px;
+  border-radius: 15px 5px 15px 5px;
+  background-color:#f8f8d8;
+  border: 3px solid #385040;
+  color:#385040;
+  padding:0px 5px;
+}
+
+.battle__userhud{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  left:170px;
+  height:70px;
+  border-radius: 15px 5px 15px 5px;
+  background-color:#f8f8d8;
+  border: 3px solid #385040;
+  color:#385040;
+  padding:0px 5px;
+}
+.battle__hudname{
+  position:absolute;
+  left:5px;
+  top:0px;
+  background-color:#f8f8d8;
+  border-radius: 10px;
+  z-index:1;
+}
+.battle__hudlvl{
+  position:absolute;
+  right:5px;
+  top:0px;
+  z-index:0;
+  font-size:12px;
+}
+.battle__hudhp{
+  box-sizing:border-box;
+  position:absolute;
+  left:30px;
+  top:27px;
+  right:2px;
+  height:18px;
+  background-color:#506858;
+  padding:0px 4px;
+  border:2px solid #00000000;
+  border-radius:10px;
+  font-size:12px;
+  line-height:12px;
+  font-weight: 900;
+}
+.battle__hudhptext{
+  color:#f8d050;
+}
+.battle__hudhpbar{
+  box-sizing:border-box;
+
+  position:absolute;
+  height:13px;
+  left:22px;
+  bottom:3px;
+  border-radius:5px;
+  z-index:10;
+  transition: all 2s ease-in-out;
+}
+
+.battle__hudhpbar:after{
+  content:"";
+  box-sizing:border-box;
+  position:absolute;
+  height:13px;
+  left:-2px;
+  width:100%;
+  bottom:-2px;
+  background-color:#70f8a8;
+  border:0px solid #f8f8f8;
+
+  border-radius:5px;
+  z-index:5;
+}
+.battle__hudhpbar:before{
+  content:"";
+  box-sizing:border-box;
+  position:absolute;
+  height:14px;
+  left:-2px;
+  width: calc(100vw - 266px);/*54px;  /* width of screen -266 */
+  bottom:-3px;
+  background-color:#50685800;
+  border:3px solid #f8f8f8;
+
+  border-radius:10px;
+  z-index:6;
+}
+
+.battle__hudhpvalue{
+  position:absolute;
+  right:5px;
+  bottom:0px;
+}

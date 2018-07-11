@@ -2,10 +2,11 @@
   "name": "pokespeak",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://prashantmohta.github.io/pokespeak/",
+  "homepage": "https://prashantmohta.github.io/pokespeak/",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
