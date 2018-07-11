@@ -67,7 +67,7 @@ class App extends Component {
     //go to first battle
     if(response ==="yes")
       {
-      setTimeout(()=>{this.history.push(process.env.PUBLIC_URL +`/battle/${this.state.pokemon}`);},1000);
+      setTimeout(()=>{this.history.push( `${process.env.PUBLIC_URL}/battle/${this.state.pokemon}`);},1000);
       this.setState({    
           heading:" Wild Encounter!",
           label:` you have found a wild pokemon ! do you want to [fight] or [run] ? `,
@@ -404,7 +404,7 @@ class App extends Component {
     return (
       <div >
         <div className="visualscontainer">
-            <h2 className="headingtext">{this.state.heading} <div>{this.state.wins}</div></h2>
+            <h2 className="headingtext">{this.state.heading} <div>{process.env.PUBLIC_URL}</div></h2>
             <Router>
               <div>
                 <Routechanger ghistory={(history) =>{  this.history = history;}}/>
