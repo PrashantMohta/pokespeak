@@ -67,7 +67,7 @@ class App extends Component {
     //go to first battle
     if(response ==="yes")
       {
-      setTimeout(()=>{this.history.push(`/battle/${this.state.pokemon}`);},1000);
+      setTimeout(()=>{this.history.push(process.env.PUBLIC_URL +`/battle/${this.state.pokemon}`);},1000);
       this.setState({    
           heading:" Wild Encounter!",
           label:` you have found a wild pokemon ! do you want to [fight] or [run] ? `,
@@ -310,7 +310,7 @@ class App extends Component {
                 pokemon:"",
                 respond:this.sysResponses[0],
                 });
-              this.history.push(`/`);
+              this.history.push(process.env.PUBLIC_URL +`/`);
             }
             else if(response==="no"){
               this.setState({
@@ -322,7 +322,7 @@ class App extends Component {
                 pokemon:"",
                 respond:(response)=>{console.log(response)},
                 });
-              this.history.push(`/`);
+              this.history.push(process.env.PUBLIC_URL +`/`);
             }
           },
          });
