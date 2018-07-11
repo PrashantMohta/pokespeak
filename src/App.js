@@ -408,8 +408,9 @@ class App extends Component {
             <Router>
               <div>
                 <Routechanger ghistory={(history) =>{  this.history = history;}}/>
-                < Route exact path="/" component={StarterChooser} />
-                < Route path="/battle/:pokemon" render={ routeProps =>  <Battle {...routeProps} user={this.state.pokemon} opponent={this.state.opponent} pokemon={{user:this.state.userPokemon,opponent:this.state.opponentPokemon}} moves={this.state.userPokemon.moves}/>} />
+                < Route exact path="/battle/:pokemon" render={ routeProps =>  <Battle {...routeProps} user={this.state.pokemon} opponent={this.state.opponent} pokemon={{user:this.state.userPokemon,opponent:this.state.opponentPokemon}} moves={this.state.userPokemon.moves}/>} />
+                < Route path="/" component={StarterChooser} />
+
               </div>
             </Router>
 
